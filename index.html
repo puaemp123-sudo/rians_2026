@@ -20,6 +20,8 @@ body{
   width:min(1100px, 90%);
   margin:auto;
 }
+
+/* ===== HERO ===== */
 .hero{
   padding:110px 0 90px;
   text-align:center;
@@ -44,29 +46,44 @@ h1{
   color:#e2e8f0;
   letter-spacing:.2px;
 }
-.hero .focusbox{
-  margin:30px auto 0;
-  max-width:900px;
-  padding:18px 22px;
-  border-radius:16px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.10);
-  color:#e2e8f0;
-}
-.hero .focusbox .label{
-  font-size:12px;
-  letter-spacing:1.2px;
-  text-transform:uppercase;
-  color:#93c5fd;
-  margin-bottom:8px;
-  font-weight:800;
-}
-.hero .focusbox .title{
-  font-size:18px;
-  font-weight:750;
-  line-height:1.4;
+
+/* ===== Full-width Specific Focus strip (NEW) ===== */
+.focus-wrapper{
+  margin-top:36px;
+  padding:34px 0;
+  background:linear-gradient(
+    90deg,
+    rgba(96,165,250,.06),
+    rgba(96,165,250,.12),
+    rgba(96,165,250,.06)
+  );
+  border-top:1px solid rgba(255,255,255,.08);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 
+.focusbox{
+  text-align:center;
+}
+
+.focusbox .label{
+  font-size:12px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:#93c5fd;
+  margin-bottom:12px;
+  font-weight:800;
+}
+
+.focusbox .title{
+  font-size:22px;
+  font-weight:750;
+  line-height:1.4;
+  max-width:980px;
+  margin:0 auto;
+  color:#e2e8f0;
+}
+
+/* ===== General sections ===== */
 .section{
   padding:80px 0;
 }
@@ -84,7 +101,7 @@ h1{
   font-weight:800;
   border-radius:12px;
   text-decoration:none;
-  margin-top:26px;
+  margin-top:28px;
 }
 .btn:hover{ filter:brightness(1.05); }
 
@@ -167,17 +184,21 @@ footer{
       Join the “AI × Neuroscience” dialogue to explore how brain science inspires next-generation AI,
       and how AI accelerates neuroscience—creating a cycle of mutual inspiration and discovery.
     </p>
+  </div>
 
-    <div class="focus-wrapper">
-  <div class="container">
-    <div class="focusbox">
-      <div class="label">Specific Focus</div>
-      <div class="title">
-        When the Brain Meets AI: From Fundamental Principles to Real-World Practice
+  <!-- FULL WIDTH STRIP (extends edge-to-edge) -->
+  <div class="focus-wrapper">
+    <div class="container">
+      <div class="focusbox">
+        <div class="label">Specific Focus</div>
+        <div class="title">
+          When the Brain Meets AI: From Fundamental Principles to Real-World Practice
+        </div>
       </div>
     </div>
   </div>
 
+  <div class="container">
     <a class="btn"
       href="https://forms.gle/KMt6unEBBgrJjnNGA"
       target="_blank"
@@ -198,7 +219,6 @@ footer{
                  box-shadow:0 30px 80px rgba(0,0,0,0.45);">
       </a>
     </div>
-
   </div>
 </section>
 
