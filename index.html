@@ -238,6 +238,31 @@ footer{
   font-size:14px;
   line-height:1.6;
 }
+  /* ===== DEBUG: make effects obvious ===== */
+
+/* 1) Title glow (強一點) */
+.hero h1{
+  text-shadow:
+    0 0 28px rgba(96,165,250,.45),
+    0 0 80px rgba(96,165,250,.25) !important;
+}
+
+/* 2) Hero texture (更明顯) */
+.hero::before{
+  opacity:.45 !important;
+}
+
+/* 3) Focus sheen (更明顯、更快) */
+.focus-wrapper::before{
+  opacity:1 !important;
+  animation: focusSheen 6s linear infinite !important;
+}
+
+@media (prefers-reduced-motion: reduce){
+  .focus-wrapper::before{
+    animation: focusSheen 6s linear infinite !important;
+  }
+}
 </style>
 </head>
 
