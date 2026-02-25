@@ -54,9 +54,6 @@ h1{
   text-decoration:none;
   margin-top:20px;
 }
-.speaker{
-  margin-top:25px;
-}
 h2{
   font-size:28px;
 }
@@ -68,6 +65,49 @@ footer{
   padding:40px 0;
   font-size:14px;
   color:#94a3b8;
+}
+
+/* ===== Speakers layout (NEW) ===== */
+.speakers-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap:24px;
+  margin-top:20px;
+}
+@media (max-width: 900px){
+  .speakers-grid{ grid-template-columns: 1fr; }
+}
+.speaker-card{
+  background:#1e293b;
+  border-radius:20px;
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+.speaker-photo{
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  object-fit:cover;
+  border:3px solid rgba(255,255,255,.12);
+}
+.speaker-name{
+  font-size:18px;
+  font-weight:800;
+  margin:0;
+}
+.speaker-affil{
+  margin:0;
+  color:#cbd5e1;
+  font-size:14px;
+  line-height:1.5;
+}
+.speaker-talk{
+  margin:0;
+  color:#94a3b8;
+  font-size:14px;
+  line-height:1.6;
 }
 </style>
 </head>
@@ -105,31 +145,49 @@ B1C Hall, IBMS, Academia Sinica, Taipei, Taiwan
 </section>
 
 
+<!-- ===== Invited Speakers (REPLACED) ===== -->
 <section class="section">
-<div class="container">
-<h2>Invited Speakers</h2>
+  <div class="container">
+    <h2>Invited Speakers</h2>
 
-<div class="card speaker">
-<strong>Blake Richards, Ph.D.</strong><br>
-Associate Professor, McGill University;<br>
-Core Faculty, Mila (Canada)<br><br>
-<em>Intelligence, life, and culture: why AI, neuroscience, biology, and sociology are fundamentally linked.</em>
-</div>
+    <div class="speakers-grid">
 
-<div class="card speaker">
-<strong>Kenji Doya, Ph.D.</strong><br>
-Professor, Okinawa Institute of Science and Technology (OIST), Japan
-</div>
+      <div class="speaker-card">
+        <img class="speaker-photo" src="assets/Blake Richards_5359_cropped.jpg" alt="Blake Richards">
+        <p class="speaker-name">Blake Richards, Ph.D.</p>
+        <p class="speaker-affil">
+          Associate Professor, McGill University;<br>
+          Core Faculty, Mila (Canada)
+        </p>
+        <p class="speaker-talk">
+          <em>Intelligence, life, and culture: why AI, neuroscience, biology, and sociology are fundamentally linked.</em>
+        </p>
+      </div>
 
-<div class="card speaker">
-<strong>Choong-Wan Woo, Ph.D.</strong><br>
-Associate Director, Institute for Basic Science (IBS);<br>
-Professor, Sungkyunkwan University, Korea<br><br>
-<em>Pain, Affect, and Life-Inspired AI.</em>
-</div>
+      <div class="speaker-card">
+        <img class="speaker-photo" src="assets/Kenji Doya.jpg" alt="Kenji Doya">
+        <p class="speaker-name">Kenji Doya, Ph.D.</p>
+        <p class="speaker-affil">
+          Professor, Okinawa Institute of Science and Technology (OIST), Japan
+        </p>
+      </div>
 
-</div>
+      <div class="speaker-card">
+        <img class="speaker-photo" src="assets/Woo_photo3.png" alt="Choong-Wan Woo">
+        <p class="speaker-name">Choong-Wan Woo, Ph.D.</p>
+        <p class="speaker-affil">
+          Associate Director, Institute for Basic Science (IBS);<br>
+          Professor, Sungkyunkwan University, Korea
+        </p>
+        <p class="speaker-talk">
+          <em>Pain, Affect, and Life-Inspired AI.</em>
+        </p>
+      </div>
+
+    </div>
+  </div>
 </section>
+<!-- ===== End Speakers ===== -->
 
 
 <section class="section" style="background:#111827;">
