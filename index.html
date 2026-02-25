@@ -14,27 +14,59 @@ body{
   font-family: system-ui, -apple-system, "Segoe UI", Roboto;
   background:#0f172a;
   color:white;
-  line-height:1.6;
+  line-height:1.65;
 }
 .container{
   width:min(1100px, 90%);
   margin:auto;
 }
 .hero{
-  padding:100px 0;
+  padding:110px 0 90px;
   text-align:center;
   background:linear-gradient(135deg,#0f172a,#1e293b);
 }
 h1{
-  font-size:clamp(32px,4vw,48px);
-  margin-bottom:20px;
+  font-size:clamp(34px,4.2vw,54px);
+  margin:0 0 18px;
+  letter-spacing:-0.4px;
 }
 .tagline{
-  font-size:20px;
+  font-size:19px;
   color:#cbd5e1;
-  max-width:800px;
-  margin:20px auto;
+  max-width:860px;
+  margin:22px auto 0;
+  line-height:1.75;
 }
+.hero .meta{
+  margin-top:26px;
+  font-size:18px;
+  font-weight:650;
+  color:#e2e8f0;
+  letter-spacing:.2px;
+}
+.hero .focusbox{
+  margin:30px auto 0;
+  max-width:900px;
+  padding:18px 22px;
+  border-radius:16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.10);
+  color:#e2e8f0;
+}
+.hero .focusbox .label{
+  font-size:12px;
+  letter-spacing:1.2px;
+  text-transform:uppercase;
+  color:#93c5fd;
+  margin-bottom:8px;
+  font-weight:800;
+}
+.hero .focusbox .title{
+  font-size:18px;
+  font-weight:750;
+  line-height:1.4;
+}
+
 .section{
   padding:80px 0;
 }
@@ -49,13 +81,16 @@ h1{
   padding:14px 22px;
   background:#60a5fa;
   color:black;
-  font-weight:700;
+  font-weight:800;
   border-radius:12px;
   text-decoration:none;
-  margin-top:20px;
+  margin-top:26px;
 }
+.btn:hover{ filter:brightness(1.05); }
+
 h2{
   font-size:28px;
+  margin:0 0 12px;
 }
 .muted{
   color:#94a3b8;
@@ -67,7 +102,7 @@ footer{
   color:#94a3b8;
 }
 
-/* ===== Speakers layout (NEW) ===== */
+/* ===== Speakers layout ===== */
 .speakers-grid{
   display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -80,15 +115,15 @@ footer{
 .speaker-card{
   background:#1e293b;
   border-radius:20px;
-  padding:24px;
+  padding:28px 24px;
   display:flex;
   flex-direction:column;
   align-items:center;
   text-align:center;
   justify-content:flex-start;
-  min-height:460px; 
-  transition:0.3s ease;
-  .speaker-card:hover{
+  transition:0.25s ease;
+}
+.speaker-card:hover{
   transform:translateY(-6px);
 }
 .speaker-photo{
@@ -98,21 +133,21 @@ footer{
   object-fit:cover;
   border:2px solid rgba(255,255,255,.15);
   display:block;
-  margin:0 auto 25px;
+  margin:0 auto 22px;
 }
 .speaker-name{
   font-size:18px;
-  font-weight:800;
+  font-weight:850;
   margin:0;
 }
 .speaker-affil{
-  margin:0;
+  margin:10px 0 0;
   color:#cbd5e1;
   font-size:14px;
   line-height:1.5;
 }
 .speaker-talk{
-  margin:0;
+  margin:14px 0 0;
   color:#94a3b8;
   font-size:14px;
   line-height:1.6;
@@ -123,51 +158,46 @@ footer{
 <body>
 
 <section class="hero">
-<div class="container">
-<h1>Rethinking Intelligence:<br>
-A NeuroAI Symposium (RIANS)</h1>
+  <div class="container">
+    <h1>Rethinking Intelligence:<br>
+      A NeuroAI Symposium (RIANS)</h1>
 
-<p class="tagline">
-Through the convergence of AI and neuroscience, new forms of intelligence are emerging.
-We invite you to join the “AI × Neuroscience” dialogue to examine how brain science inspires next-generation AI,
-and how AI serves as a powerful tool to advance neuroscience, fostering a cycle of mutual inspiration and discovery.
-</p>
+    <p class="tagline">
+      Through the convergence of AI and neuroscience, new forms of intelligence are emerging.<br><br>
+      Join the “AI × Neuroscience” dialogue to explore how brain science inspires next-generation AI,
+      and how AI accelerates neuroscience—creating a cycle of mutual inspiration and discovery.
+    </p>
 
-<p><strong>Specific Focus:</strong><br>
-When the Brain Meets AI: From Fundamental Principles to Real-World Practice
-</p>
+    <div class="focusbox">
+      <div class="label">Specific Focus</div>
+      <div class="title">When the Brain Meets AI: From Fundamental Principles to Real-World Practice</div>
+    </div>
 
-<a class="btn"
-href="https://forms.gle/KMt6unEBBgrJjnNGA"
-target="_blank"
-rel="noopener noreferrer">
-Register Now
-</a>
+    <a class="btn"
+      href="https://forms.gle/KMt6unEBBgrJjnNGA"
+      target="_blank"
+      rel="noopener noreferrer">
+      Register Now
+    </a>
 
-<div style="margin-top:30px; display:flex; gap:20px; justify-content:center; flex-wrap:wrap;">
+    <div class="meta">
+      April 8, 2026 · B1C Hall, IBMS, Academia Sinica, Taipei, Taiwan
+    </div>
 
-  <div style="background:#1e293b; padding:16px 24px; border-radius:16px;">
-     <strong>April 8, 2026</strong>
+    <div style="margin-top:60px;">
+      <a href="assets/RIANS_poster.jpg" target="_blank" rel="noopener noreferrer">
+        <img src="assets/RIANS_poster.jpg"
+          alt="RIANS Poster"
+          style="width:100%; max-width:650px; height:auto; border-radius:24px;
+                 display:block; margin:0 auto;
+                 box-shadow:0 30px 80px rgba(0,0,0,0.45);">
+      </a>
+    </div>
+
   </div>
-
-  <div style="background:#1e293b; padding:16px 24px; border-radius:16px;">
-     <strong>B1C Hall, IBMS, Academia Sinica</strong>
-  </div>
-
-</div>
-<div style="margin-top:60px;">
-  <a href="assets/RIANS_poster.jpg" target="_blank">
-    <img src="assets/RIANS_poster.jpg"
-         alt="RIANS Poster"
-         style="width:100%; max-width:650px; height:auto; border-radius:24px;
-                display:block; margin:0 auto;
-                box-shadow:0 30px 80px rgba(0,0,0,0.45);">
-  </a>
-</div>
 </section>
 
 
-<!-- ===== Invited Speakers (REPLACED) ===== -->
 <section class="section">
   <div class="container">
     <h2>Invited Speakers</h2>
@@ -209,29 +239,30 @@ Register Now
     </div>
   </div>
 </section>
-<!-- ===== End Speakers ===== -->
 
 
 <section class="section" style="background:#111827;">
-<div class="container">
-<h2>Venue</h2>
+  <div class="container">
+    <h2>Venue</h2>
 
-<div class="card">
-B1C Hall<br>
-Institute of Biomedical Sciences (IBMS)<br>
-Academia Sinica, Taipei, Taiwan
-</div>
-  <div style="margin-top:40px; border-radius:20px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
-  <iframe
-    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7188338591827!2d121.61207867537684!3d25.04361417781021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34680284052e5d29%3A0xc53103adee270ba4!2zSW5zdGl0dXRlIG9mIEJpb21lZGljYWwgU2NpZW5jZXMsIEFjYWRlbWlhIFNpbmljYShJQk1TKS8g5Lit5aSu56CU56m26ZmiIOeUn-eJqemGq-WtuOenkeWtuOeglOeptuaJgCjnlJ_phqvmiYAp!5e0!3m2!1szh-TW!2stw!4v1772001111296!5m2!1szh-TW!2stw"
-    width="100%"
-    height="450"
-    style="border:0;"
-    allowfullscreen=""
-    loading="lazy">
-  </iframe>
-</div>
-</div>
+    <div class="card">
+      B1C Hall<br>
+      Institute of Biomedical Sciences (IBMS)<br>
+      Academia Sinica, Taipei, Taiwan
+    </div>
+
+    <div style="margin-top:40px; border-radius:20px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7188338591827!2d121.61207867537684!3d25.04361417781021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34680284052e5d29%3A0xc53103adee270ba4!2zSW5zdGl0dXRlIG9mIEJpb21lZGljYWwgU2NpZW5jZXMsIEFjYWRlbWlhIFNpbmljYShJQk1TKS8g5Lit5aSu56CU56m26ZmiIOeUn-eJqemGq-WtuOenkeWtuOeglOeptuaJgCjnlJ_phqvmiYAp!5e0!3m2!1szh-TW!2stw!4v1772001111296!5m2!1szh-TW!2stw"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
+    </div>
+
+  </div>
 </section>
 
 <footer>
