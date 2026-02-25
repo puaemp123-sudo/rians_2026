@@ -83,15 +83,22 @@ footer{
   padding:24px;
   display:flex;
   flex-direction:column;
-  gap:14px;
-  align-items:center; 
+  align-items:center;
+  text-align:center;
+  justify-content:flex-start;
+  min-height:460px; 
+  transition:0.3s ease;
+  .speaker-card:hover{
+  transform:translateY(-6px);
 }
 .speaker-photo{
   width:160px;
   height:160px;
   border-radius:50%;
   object-fit:cover;
-  border:3px solid rgba(255,255,255,.12);
+  border:2px solid rgba(255,255,255,.15);
+  display:block;
+  margin:0 auto 25px;
 }
 .speaker-name{
   font-size:18px;
