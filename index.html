@@ -31,7 +31,7 @@ body{
   background:linear-gradient(135deg,#0f172a,#1e293b);
 }
 
-/* subtle tech texture (very light) */
+/* subtle tech texture */
 .hero::before{
   content:"";
   position:absolute;
@@ -42,11 +42,10 @@ body{
     linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
   background-size:auto, auto, 70px 70px, 70px 70px;
-  opacity:.18;
+  opacity:.25;
   pointer-events:none;
 }
 
-/* keep hero content above texture */
 .hero > .container,
 .hero > .focus-wrapper{
   position:relative;
@@ -58,8 +57,8 @@ body{
   margin:0 0 18px;
   letter-spacing:-0.4px;
   text-shadow:
-    0 0 18px rgba(96,165,250,.16),
-    0 0 42px rgba(96,165,250,.10);
+    0 0 28px rgba(96,165,250,.45),
+    0 0 80px rgba(96,165,250,.25);
 }
 
 .tagline{
@@ -75,23 +74,22 @@ body{
   padding:14px 22px;
   background:#60a5fa;
   color:black;
-  font-weight:800;
+  font-weight:900;
   border-radius:12px;
   text-decoration:none;
-  margin-top:28px;
+  margin-top:24px;
 }
 .btn:hover{ filter:brightness(1.05); }
 
-/* date/location: prominent but not “button-like” */
 .hero .meta{
-  margin-top:22px;
+  margin-top:18px;
   display:inline-flex;
   align-items:center;
   justify-content:center;
   padding:12px 18px;
   border-radius:999px;
   font-size:18px;
-  font-weight:800;
+  font-weight:900;
   color:#f1f5f9;
   letter-spacing:.2px;
   background:rgba(255,255,255,.06);
@@ -99,7 +97,7 @@ body{
   box-shadow:0 14px 50px rgba(0,0,0,.25);
 }
 
-/* ===== Full-width Specific Focus strip (edge-to-edge) ===== */
+/* ===== Full-width Specific Focus strip ===== */
 .focus-wrapper{
   position:relative;
   overflow:hidden;
@@ -115,7 +113,6 @@ body{
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-/* slow flowing sheen */
 .focus-wrapper::before{
   content:"";
   position:absolute;
@@ -129,25 +126,21 @@ body{
       rgba(96,165,250,.10),
       rgba(96,165,250,.03)
     );
-  opacity:.75;
+  opacity:.85;
   transform:translateX(-35%);
-  animation: focusSheen 18s linear infinite;
+  animation: focusSheen 10s linear infinite;
   pointer-events:none;
 }
 @keyframes focusSheen{
   0%   { transform:translateX(-35%); }
   100% { transform:translateX(35%); }
 }
-
-/* keep focus content above sheen */
-.focus-wrapper .container{
-  position:relative;
-  z-index:1;
+@media (prefers-reduced-motion: reduce){
+  .focus-wrapper::before{ animation:none; }
 }
 
-.focusbox{
-  text-align:center;
-}
+.focus-wrapper .container{ position:relative; z-index:1; }
+.focusbox{ text-align:center; }
 .focusbox .label{
   font-size:12px;
   letter-spacing:1.5px;
@@ -158,12 +151,113 @@ body{
 }
 .focusbox .title{
   font-size:22px;
-  font-weight:750;
+  font-weight:800;
   line-height:1.4;
   max-width:980px;
   margin:0 auto;
   color:#e2e8f0;
 }
+
+/* ===== Call for Posters (hero) ===== */
+.callout{
+  margin:34px auto 8px;
+  max-width:980px;
+  text-align:left;
+  border-radius:22px;
+  padding:22px 22px;
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 18px 60px rgba(0,0,0,.30);
+}
+
+.callout-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+
+.shine{
+  font-size:16px;
+  font-weight:1000;
+  letter-spacing:1.6px;
+  text-transform:uppercase;
+  padding:8px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.20);
+  background:rgba(15,23,42,.35);
+
+  /* shiny animated gradient */
+  background-image: linear-gradient(
+    110deg,
+    rgba(255,255,255,.25) 0%,
+    rgba(96,165,250,1) 25%,
+    rgba(255,255,255,1) 45%,
+    rgba(96,165,250,1) 65%,
+    rgba(255,255,255,.25) 100%
+  );
+  background-size: 240% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  filter: drop-shadow(0 0 10px rgba(96,165,250,.35));
+  animation: shineMove 2.2s linear infinite;
+}
+@keyframes shineMove{
+  0% { background-position: 0% 50%; }
+  100% { background-position: 240% 50%; }
+}
+@media (prefers-reduced-motion: reduce){
+  .shine{ animation:none; }
+}
+
+.callout p{
+  margin:10px 0 0;
+  color:#e5e7eb;
+  line-height:1.7;
+}
+.callout .small{
+  margin-top:10px;
+  color:#cbd5e1;
+  font-size:14px;
+}
+.callout ul{
+  margin:12px 0 0;
+  padding-left:18px;
+  color:#dbeafe;
+}
+.callout li{ margin:6px 0; }
+.callout .award{
+  margin-top:14px;
+  display:grid;
+  gap:10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 900px){
+  .callout .award{ grid-template-columns: 1fr; }
+}
+.award-item{
+  border-radius:16px;
+  padding:12px 14px;
+  background:rgba(2,6,23,.35);
+  border:1px solid rgba(255,255,255,.10);
+  color:#e2e8f0;
+  font-size:14px;
+}
+.award-item b{ color:#fff; }
+.callout .template-link{
+  margin-top:12px;
+  display:inline-flex;
+  gap:10px;
+  align-items:center;
+  text-decoration:none;
+  font-weight:900;
+  color:#93c5fd;
+}
+.callout .template-link:hover{ filter:brightness(1.08); }
 
 /* ===== Poster (single centered) ===== */
 .poster-single{
@@ -193,21 +287,14 @@ body{
 }
 
 /* ===== Sections ===== */
-.section{
-  padding:80px 0;
-}
-h2{
-  font-size:28px;
-  margin:0 0 12px;
-}
+.section{ padding:80px 0; }
+h2{ font-size:28px; margin:0 0 12px; }
 .card{
   background:#1e293b;
   padding:30px;
   border-radius:20px;
   margin-top:20px;
 }
-.muted{ color:#94a3b8; }
-
 footer{
   text-align:center;
   padding:40px 0;
@@ -215,42 +302,102 @@ footer{
   color:#94a3b8;
 }
 
+/* ===== Keynote section: make it stand out ===== */
+.keynote-section{
+  position:relative;
+  background:linear-gradient(180deg, rgba(17,24,39,1), rgba(2,6,23,1));
+  border-top:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.section-title{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.section-title h2{
+  font-size:34px;
+  letter-spacing:-.3px;
+  margin:0;
+  text-shadow: 0 0 26px rgba(96,165,250,.22);
+}
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:1000;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  background:rgba(96,165,250,.12);
+  border:1px solid rgba(96,165,250,.28);
+  color:#dbeafe;
+}
+.section-sub{
+  margin-top:10px;
+  color:#cbd5e1;
+  max-width:860px;
+}
+
 /* ===== Speakers layout ===== */
 .speakers-grid{
   display:grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap:24px;
-  margin-top:20px;
+  margin-top:26px;
 }
 @media (max-width: 900px){
   .speakers-grid{ grid-template-columns: 1fr; }
 }
+
 .speaker-card{
-  background:#1e293b;
-  border-radius:20px;
-  padding:28px 24px;
+  background:rgba(30,41,59,.95);
+  border-radius:22px;
+  padding:30px 24px;
   display:flex;
   flex-direction:column;
   align-items:center;
   text-align:center;
   justify-content:flex-start;
   transition:0.25s ease;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow: 0 18px 60px rgba(0,0,0,.22);
 }
-.speaker-card:hover{ transform:translateY(-6px); }
+.speaker-card:hover{ transform:translateY(-8px); }
+
+/* Make keynote cards more “premium” */
+.keynote-section .speaker-card{
+  border:1px solid rgba(96,165,250,.22);
+  box-shadow:
+    0 20px 70px rgba(0,0,0,.30),
+    0 0 0 1px rgba(96,165,250,.10) inset;
+}
+.keynote-section .speaker-card:hover{
+  box-shadow:
+    0 28px 90px rgba(0,0,0,.38),
+    0 0 0 1px rgba(96,165,250,.16) inset;
+}
 
 .speaker-photo{
   width:160px;
   height:160px;
   border-radius:50%;
   object-fit:cover;
-  border:2px solid rgba(255,255,255,.15);
+  border:2px solid rgba(255,255,255,.18);
   display:block;
   margin:0 auto 22px;
+}
+.keynote-section .speaker-photo{
+  border:2px solid rgba(96,165,250,.35);
+  box-shadow: 0 0 24px rgba(96,165,250,.18);
 }
 
 .speaker-name{
   font-size:18px;
-  font-weight:900;
+  font-weight:1000;
   margin:0;
 }
 .speaker-affil{
@@ -264,27 +411,6 @@ footer{
   color:#94a3b8;
   font-size:14px;
   line-height:1.6;
-}
-
-/* ===== (Optional) DEBUG stronger effects - keep if you want ===== */
-.hero h1{
-  text-shadow:
-    0 0 28px rgba(96,165,250,.45),
-    0 0 80px rgba(96,165,250,.25) !important;
-}
-.hero::before{
-  opacity:.45 !important;
-}
-.focus-wrapper::before{
-  opacity:1 !important;
-  animation: focusSheen 6s linear infinite !important;
-}
-
-/* ✅ Reduced motion: disable animation (fix) */
-@media (prefers-reduced-motion: reduce){
-  .focus-wrapper::before{
-    animation:none !important;
-  }
 }
 </style>
 </head>
@@ -303,7 +429,7 @@ footer{
     </p>
   </div>
 
-  <!-- FULL WIDTH STRIP (extends edge-to-edge) -->
+  <!-- FULL WIDTH STRIP -->
   <div class="focus-wrapper">
     <div class="container">
       <div class="focusbox">
@@ -316,6 +442,44 @@ footer{
   </div>
 
   <div class="container">
+
+    <!-- ✅ Call for Posters (before register button) -->
+    <div class="callout">
+      <div class="callout-head">
+        <div class="shine">CALL FOR POSTERS</div>
+        <div class="badge">Poster Awards Available</div>
+      </div>
+
+      <p>
+        We invite poster submissions from trainees across diverse perspectives, including (but not limited to)
+        applying neuroscience to AI or AI to neuroscience; spanning neuroscience, cognitive psychology,
+        data analysis and modeling for brain disorders and clinical translation, as well as neuromorphic computing
+        and related hardware/software applications. Outstanding posters will be recognized with Poster Awards.
+      </p>
+
+      <p class="small">
+        Eligible trainees include master’s/PhD students, postdocs, research assistants, residents, etc.
+      </p>
+
+      <ul>
+        <li><b>Abstract:</b> 250–350 words</li>
+        <li><b>Poster size:</b> 85 × 120 cm</li>
+        <li><b>Applicant must be first author</b></li>
+      </ul>
+
+      <a class="template-link" href="#" target="_blank" rel="noopener noreferrer">
+        Abstract template download here →
+      </a>
+
+      <div class="award">
+        <div class="award-item"><b>🏅 First Prize (1 winner)</b><br>NT$15,000 + certificate</div>
+        <div class="award-item"><b>🥈 Second Prize (1 winner)</b><br>NT$10,000 + certificate</div>
+        <div class="award-item"><b>🥉 Third Prize (1 winner)</b><br>NT$5,000 + certificate</div>
+        <div class="award-item"><b>✨ Honorable Mentions (10 winners)</b><br>NT$1,000 + certificate each</div>
+      </div>
+    </div>
+    <!-- source: :contentReference[oaicite:1]{index=1} -->
+
     <a class="btn"
       href="https://forms.gle/KMt6unEBBgrJjnNGA"
       target="_blank"
@@ -327,7 +491,7 @@ footer{
       April 8, 2026 · B1C Hall, IBMS, Academia Sinica, Taipei, Taiwan
     </div>
 
-    <!-- ✅ Poster only (no agenda) -->
+    <!-- Poster only -->
     <div class="poster-single">
       <a class="poster-card"
          href="assets/RIANS_poster_v2.png"
@@ -341,9 +505,16 @@ footer{
 </section>
 
 
-<section class="section">
+<!-- ✅ Keynote section made more prominent -->
+<section class="section keynote-section">
   <div class="container">
-    <h2>Keynote Speakers</h2>
+    <div class="section-title">
+      <h2>Keynote Speakers</h2>
+      <div class="badge">Keynote</div>
+    </div>
+    <div class="section-sub">
+      Three plenary keynote talks highlighting Neuroscience-Inspired AI and AI-Powered Neuroscience across levels—from principles to real-world practice.
+    </div>
 
     <div class="speakers-grid">
 
