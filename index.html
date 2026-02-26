@@ -412,6 +412,71 @@ footer{
   font-size:14px;
   line-height:1.6;
 }
+  /* ===== Invited Speakers (secondary tier) ===== */
+.invited-section{
+  padding:80px 0;
+  background:#0f172a;
+}
+.invited-title{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.invited-title h2{
+  font-size:30px;
+  margin:0;
+  color:#e2e8f0;
+}
+.invited-sub{
+  margin-top:10px;
+  color:#94a3b8;
+  max-width:860px;
+}
+
+/* make invited cards slightly calmer than keynote */
+.invited-section .speaker-card{
+  background:rgba(30,41,59,.78);
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow: 0 14px 50px rgba(0,0,0,.18);
+}
+.invited-section .speaker-photo{
+  border:2px solid rgba(255,255,255,.14);
+  box-shadow:none;
+}
+
+/* Coming soon card */
+.coming-soon{
+  border:1px dashed rgba(255,255,255,.22) !important;
+  background:rgba(255,255,255,.03) !important;
+}
+.coming-soon .speaker-name{
+  font-size:19px;
+}
+.coming-soon .speaker-affil{
+  color:#cbd5e1;
+}
+.coming-soon .soon{
+  display:inline-block;
+  margin-top:10px;
+  font-weight:900;
+  letter-spacing:.4px;
+  background: linear-gradient(90deg, rgba(96,165,250,1), rgba(255,255,255,1), rgba(96,165,250,1));
+  background-size: 200% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation: invitedShine 2.6s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(96,165,250,.25));
+}
+@keyframes invitedShine{
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+@media (prefers-reduced-motion: reduce){
+  .coming-soon .soon{ animation:none; }
+}
 </style>
 </head>
 
@@ -557,7 +622,84 @@ footer{
     </div>
   </div>
 </section>
+<section class="invited-section">
+  <div class="container">
 
+    <div class="invited-title">
+      <h2>Invited Speakers</h2>
+      <div class="badge" style="background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); color:#e2e8f0;">
+        Invited
+      </div>
+    </div>
+
+    <div class="invited-sub">
+      More speakers will be announced soon.
+    </div>
+
+    <div class="speakers-grid">
+
+      <div class="speaker-card">
+        <img class="speaker-photo" src="assets/Lun-De-Liao.jpg" alt="Lun-De Liao">
+        <p class="speaker-name">Lun-De Liao, Ph.D.</p>
+        <p class="speaker-affil">
+          Investigator<br>
+          Institute of Biomedical Engineering and Nanomedicine<br>
+          National Health Research Institutes, Taiwan
+        </p>
+      </div>
+
+      <div class="speaker-card">
+        <img class="speaker-photo" src="assets/yu.tsao.jpg" alt="Yu Tsao">
+        <p class="speaker-name">Yu Tsao, Ph.D.</p>
+        <p class="speaker-affil">
+          Research Fellow (Professor)<br>
+          Research Center for Information Technology Innovation<br>
+          Academia Sinica, Taiwan
+        </p>
+      </div>
+
+      <div class="speaker-card">
+        <img class="speaker-photo" src="assets/Chung-Chuan Lo.jpg" alt="Chung-Chuan Lo">
+        <p class="speaker-name">Chung-Chuan Lo, Ph.D.</p>
+        <p class="speaker-affil">
+          Professor, Institute of Systems Neuroscience<br>
+          Associate Dean, College of Life Sciences and Medicine<br>
+          National Tsing Hua University, Taiwan
+        </p>
+      </div>
+
+      <div class="speaker-card">
+        <img class="speaker-photo" src="assets/Chao Hung Wang.jpg" alt="Chao Hung Wang">
+        <p class="speaker-name">Chao Hung Wang, Ph.D.</p>
+        <p class="speaker-affil">
+          Assistant Professor<br>
+          Miin Wu School of Computing<br>
+          National Cheng Kung University, Taiwan
+        </p>
+      </div>
+
+      <div class="speaker-card">
+        <img class="speaker-photo" src="assets/Li-An Chu.jpg" alt="Li-An Chu">
+        <p class="speaker-name">Li-An Chu, Ph.D.</p>
+        <p class="speaker-affil">
+          Associate Professor<br>
+          Biomedical Engineering Department<br>
+          National Taiwan University, Taiwan
+        </p>
+      </div>
+
+      <!-- 第六格：邀請中 -->
+      <div class="speaker-card coming-soon">
+        <p class="speaker-name">Invited Speaker</p>
+        <p class="speaker-affil">
+          <span class="soon">邀請中，敬請期待</span><br>
+          Coming soon
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <section class="section" style="background:#111827;">
   <div class="container">
