@@ -677,6 +677,28 @@ footer{
     gap:30px;
   }
 }
+  /* ===== Keynote links ===== */
+.keynote-links{
+  margin-top:6px;
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.keynote-links a{
+  font-size:13px;
+  text-decoration:none;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid rgba(96,165,250,.35);
+  color:#93c5fd;
+  transition:.25s ease;
+}
+
+.keynote-links a:hover{
+  background:rgba(96,165,250,.12);
+  transform:translateY(-2px);
+}
 </style>
 </head>
 
@@ -784,7 +806,7 @@ footer{
     </div>
 
     <div class="keynote-sub">
-      Featured plenary talks highlighting foundational and forward-looking perspectives at the intersection of AI and neuroscience.
+     
     </div>
 
     <div class="keynote-grid-1">
@@ -792,16 +814,25 @@ footer{
       <!-- Keynote 1 -->
       <div class="speaker-card">
         <img class="speaker-photo" src="assets/Blake Richards_5359_cropped.jpg" alt="Blake Richards">
-        <div class="keynote-info">
-          <p class="k-name">Blake Richards, Ph.D.</p>
-          <p class="k-affil">
-            Associate Professor, McGill University;<br>
-            Core Faculty, Mila (Canada)
-          </p>
-          <p class="k-talk">
-            Intelligence, life, and culture: why AI, neuroscience, biology, and sociology are fundamentally linked.
-          </p>
-        </div>
+       <div class="keynote-info">
+  <p class="k-name">Blake Richards, Ph.D.</p>
+
+  <p class="k-affil">
+    Associate Professor, McGill University;<br>
+    Core Faculty, Mila (Canada)
+  </p>
+
+  <!-- 🔥 就插在這裡 -->
+  <div class="keynote-links">
+    <a href="https://scholar.google.com/citations?user=1CPY1LsAAAAJ&hl=en" target="_blank">
+      Google Scholar
+    </a>
+  </div>
+
+  <p class="k-talk">
+    Intelligence, life, and culture: why AI, neuroscience, biology, and sociology are fundamentally linked.
+  </p>
+</div>
       </div>
 
       <!-- Keynote 2 -->
@@ -812,6 +843,11 @@ footer{
           <p class="k-affil">
             Professor, Okinawa Institute of Science and Technology (OIST), Japan
           </p>
+          <div class="keynote-links">
+  <a href="https://www.oist.jp/research/research-units/ncu" target="_blank">
+    Research Unit (OIST)
+  </a>
+</div>
           <p class="k-talk">
             Brain-Inspired AI and AI-Powered Neuroscience.
           </p>
@@ -827,6 +863,11 @@ footer{
             Associate Director, Institute for Basic Science (IBS);<br>
             Professor, Sungkyunkwan University, Korea
           </p>
+          <div class="keynote-links">
+  <a href="https://cocoanlab.github.io/" target="_blank">
+    Lab Website
+  </a>
+</div>
           <p class="k-talk">
             Pain, Affect, and Life-Inspired AI.
           </p>
