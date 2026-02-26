@@ -621,6 +621,31 @@ footer{
 @media (prefers-reduced-motion: reduce){
   .coming-banner{ animation:none; }
 }
+  /* ===== Project Speakers centered layout ===== */
+.project-grid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(360px, 480px));
+  justify-content:center;   /* 🔥 讓整組卡片置中 */
+  gap:60px;                 /* 🔥 間距拉大 */
+  margin-top:40px;
+}
+
+.project-grid .speaker-card{
+  padding:40px 30px;
+  min-height:420px;
+}
+
+.project-grid .speaker-photo{
+  width:180px;
+  height:180px;
+}
+
+@media (max-width:900px){
+  .project-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+}
 </style>
 </head>
 
@@ -792,14 +817,14 @@ footer{
         background:rgba(96,165,250,.16);
         color:#93c5fd;
         border:1px solid rgba(96,165,250,.28);
-      ">Featured Projects</div>
+      ">Projects</div>
     </div>
 
     <div style="margin-top:12px; color:#94a3b8; max-width:850px;">
      
     </div>
 
-    <div class="speakers-grid" style="margin-top:26px;">
+   <div class="project-grid">
 
       <div class="speaker-card">
        <img class="speaker-photo" src="assets/chung-chuan-lo-new.jpg" alt="Chung-Chuan Lo">
