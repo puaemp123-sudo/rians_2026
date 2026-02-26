@@ -31,7 +31,6 @@ body{
   background:linear-gradient(135deg,#0f172a,#1e293b);
 }
 
-/* subtle tech texture (very light) */
 .hero::before{
   content:"";
   position:absolute;
@@ -42,11 +41,10 @@ body{
     linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
   background-size:auto, auto, 70px 70px, 70px 70px;
-  opacity:.18;
+  opacity:.25;
   pointer-events:none;
 }
 
-/* keep hero content above texture */
 .hero > .container,
 .hero > .focus-wrapper{
   position:relative;
@@ -58,8 +56,8 @@ body{
   margin:0 0 18px;
   letter-spacing:-0.4px;
   text-shadow:
-    0 0 18px rgba(96,165,250,.16),
-    0 0 42px rgba(96,165,250,.10);
+    0 0 28px rgba(96,165,250,.45),
+    0 0 80px rgba(96,165,250,.25);
 }
 
 .tagline{
@@ -82,7 +80,6 @@ body{
 }
 .btn:hover{ filter:brightness(1.05); }
 
-/* date/location: prominent but not “button-like” */
 .hero .meta{
   margin-top:22px;
   display:inline-flex;
@@ -99,7 +96,7 @@ body{
   box-shadow:0 14px 50px rgba(0,0,0,.25);
 }
 
-/* ===== Full-width Specific Focus strip (edge-to-edge) ===== */
+/* ===== Focus Strip ===== */
 .focus-wrapper{
   position:relative;
   overflow:hidden;
@@ -115,7 +112,6 @@ body{
   border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-/* slow flowing sheen */
 .focus-wrapper::before{
   content:"";
   position:absolute;
@@ -129,17 +125,23 @@ body{
       rgba(96,165,250,.10),
       rgba(96,165,250,.03)
     );
-  opacity:.75;
+  opacity:.8;
   transform:translateX(-35%);
-  animation: focusSheen 18s linear infinite;
+  animation: focusSheen 10s linear infinite;
   pointer-events:none;
 }
+
 @keyframes focusSheen{
   0%   { transform:translateX(-35%); }
   100% { transform:translateX(35%); }
 }
 
-/* keep focus content above sheen */
+@media (prefers-reduced-motion: reduce){
+  .focus-wrapper::before{
+    animation:none;
+  }
+}
+
 .focus-wrapper .container{
   position:relative;
   z-index:1;
@@ -164,26 +166,35 @@ body{
   margin:0 auto;
   color:#e2e8f0;
 }
-/* ===== Single Poster Centered ===== */
+
+/* ===== Poster (Single Centered) ===== */
 .poster-single{
-  margin-top:60px;
+  margin-top:70px;
   display:flex;
   justify-content:center;
 }
 
-.poster-single a{
-  max-width:720px;
+.poster-card{
+  max-width:750px;
   width:100%;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,0.5);
+  border:1px solid rgba(255,255,255,.08);
+  transition:transform .25s ease, filter .25s ease;
+}
+
+.poster-card:hover{
+  transform:translateY(-8px);
+  filter:brightness(1.04);
+}
+
+.poster-card img{
+  width:100%;
+  height:auto;
   display:block;
 }
 
-.poster-single img{
-  width:100%;
-  height:auto;
-  border-radius:24px;
-  box-shadow:0 30px 80px rgba(0,0,0,0.45);
-  border:1px solid rgba(255,255,255,.08);
-}
 /* ===== Sections ===== */
 .section{
   padding:80px 0;
@@ -198,125 +209,11 @@ h2{
   border-radius:20px;
   margin-top:20px;
 }
-.muted{ color:#94a3b8; }
-
 footer{
   text-align:center;
   padding:40px 0;
   font-size:14px;
   color:#94a3b8;
-}
-
-/* ===== Speakers layout ===== */
-.speakers-grid{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap:24px;
-  margin-top:20px;
-}
-@media (max-width: 900px){
-  .speakers-grid{ grid-template-columns: 1fr; }
-}
-.speaker-card{
-  background:#1e293b;
-  border-radius:20px;
-  padding:28px 24px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  justify-content:flex-start;
-  transition:0.25s ease;
-}
-.speaker-card:hover{ transform:translateY(-6px); }
-
-.speaker-photo{
-  width:160px;
-  height:160px;
-  border-radius:50%;
-  object-fit:cover;
-  border:2px solid rgba(255,255,255,.15);
-  display:block;
-  margin:0 auto 22px;
-}
-
-.speaker-name{
-  font-size:18px;
-  font-weight:900;
-  margin:0;
-}
-.speaker-affil{
-  margin:10px 0 0;
-  color:#cbd5e1;
-  font-size:14px;
-  line-height:1.5;
-}
-.speaker-talk{
-  margin:14px 0 0;
-  color:#94a3b8;
-  font-size:14px;
-  line-height:1.6;
-}
-  /* ===== DEBUG: make effects obvious ===== */
-
-/* 1) Title glow (強一點) */
-.hero h1{
-  text-shadow:
-    0 0 28px rgba(96,165,250,.45),
-    0 0 80px rgba(96,165,250,.25) !important;
-}
-
-/* 2) Hero texture (更明顯) */
-.hero::before{
-  opacity:.45 !important;
-}
-
-/* 3) Focus sheen (更明顯、更快) */
-.focus-wrapper::before{
-  opacity:1 !important;
-  animation: focusSheen 6s linear infinite !important;
-}
-
-@media (prefers-reduced-motion: reduce){
-  .focus-wrapper::before{
-    animation: focusSheen 6s linear infinite !important;
-  }
-}
-  /* ===== Poster + Agenda side-by-side ===== */
-.poster-agenda{
-  margin-top:60px;
-  display:grid;
-  grid-template-columns: 1fr 1fr;
-  gap:24px;
-  align-items:start;
-}
-
-.poster-card, .agenda-card{
-  display:block;
-  border-radius:24px;
-  overflow:hidden;
-  box-shadow:0 30px 80px rgba(0,0,0,0.45);
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.02);
-  transition: transform .25s ease, filter .25s ease;
-}
-
-.poster-card:hover, .agenda-card:hover{
-  transform: translateY(-6px);
-  filter: brightness(1.03);
-}
-
-.poster-card img, .agenda-card img{
-  width:100%;
-  height:auto;
-  display:block;
-}
-
-/* 手機版 */
-@media (max-width: 900px){
-  .poster-agenda{
-    grid-template-columns: 1fr;
-  }
 }
 </style>
 </head>
@@ -335,7 +232,6 @@ footer{
     </p>
   </div>
 
-  <!-- FULL WIDTH STRIP (extends edge-to-edge) -->
   <div class="focus-wrapper">
     <div class="container">
       <div class="focusbox">
@@ -348,6 +244,7 @@ footer{
   </div>
 
   <div class="container">
+
     <a class="btn"
       href="https://forms.gle/KMt6unEBBgrJjnNGA"
       target="_blank"
@@ -359,93 +256,14 @@ footer{
       April 8, 2026 · B1C Hall, IBMS, Academia Sinica, Taipei, Taiwan
     </div>
 
-<div class="poster-agenda">
-
-<div style="margin-top:60px; text-align:center;">
-  <a href="assets/RIANS_poster_v2.png"
-     target="_blank"
-     rel="noopener noreferrer"
-     style="display:inline-block; max-width:650px; width:100%;">
-     
-    <img src="assets/RIANS_poster_v2.png"
-         alt="RIANS Poster"
-         style="width:100%; height:auto; border-radius:24px;
-                box-shadow:0 30px 80px rgba(0,0,0,0.45);
-                border:1px solid rgba(255,255,255,.08);">
-  </a>
-</div>
-  </a>
-
-</div>
-  </div>
-</section>
-
-
-<section class="section">
-  <div class="container">
-    <h2>Keynote Speakers</h2>
-
-    <div class="speakers-grid">
-
-      <div class="speaker-card">
-        <img class="speaker-photo" src="assets/Blake Richards_5359_cropped.jpg" alt="Blake Richards">
-        <p class="speaker-name">Blake Richards, Ph.D.</p>
-        <p class="speaker-affil">
-          Associate Professor, McGill University;<br>
-          Core Faculty, Mila (Canada)
-        </p>
-        <p class="speaker-talk">
-          <em>Intelligence, life, and culture: why AI, neuroscience, biology, and sociology are fundamentally linked.</em>
-        </p>
-      </div>
-
-<div class="speaker-card">
-  <img class="speaker-photo" src="assets/Kenji Doya.jpg" alt="Kenji Doya">
-  <p class="speaker-name">Kenji Doya, Ph.D.</p>
-  <p class="speaker-affil">
-    Professor, Okinawa Institute of Science and Technology (OIST), Japan
-  </p>
-  <p class="speaker-talk">
-    <em>Brain-Inspired AI and AI-Powered Neuroscience.</em>
-  </p>
-</div>
-
-      <div class="speaker-card">
-        <img class="speaker-photo" src="assets/Woo_photo3.png" alt="Choong-Wan Woo">
-        <p class="speaker-name">Choong-Wan Woo, Ph.D.</p>
-        <p class="speaker-affil">
-          Associate Director, Institute for Basic Science (IBS);<br>
-          Professor, Sungkyunkwan University, Korea
-        </p>
-        <p class="speaker-talk">
-          <em>Pain, Affect, and Life-Inspired AI.</em>
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<section class="section" style="background:#111827;">
-  <div class="container">
-    <h2>Venue</h2>
-
-    <div class="card">
-      B1C Hall<br>
-      Institute of Biomedical Sciences (IBMS)<br>
-      Academia Sinica, Taipei, Taiwan
-    </div>
-
-    <div style="margin-top:40px; border-radius:20px; overflow:hidden; box-shadow:0 20px 60px rgba(0,0,0,0.4);">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.7188338591827!2d121.61207867537684!3d25.04361417781021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34680284052e5d29%3A0xc53103adee270ba4!2zSW5zdGl0dXRlIG9mIEJpb21lZGljYWwgU2NpZW5jZXMsIEFjYWRlbWlhIFNpbmljYShJQk1TKS8g5Lit5aSu56CU56m26ZmiIOeUn-eJqemGq-WtuOenkeWtuOeglOeptuaJgCjnlJ_phqvmiYAp!5e0!3m2!1szh-TW!2stw!4v1772001111296!5m2!1szh-TW!2stw"
-        width="100%"
-        height="450"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy">
-      </iframe>
+    <!-- Poster Only -->
+    <div class="poster-single">
+      <a class="poster-card"
+         href="assets/RIANS_poster_v2.png"
+         target="_blank"
+         rel="noopener noreferrer">
+        <img src="assets/RIANS_poster_v2.png" alt="RIANS Poster">
+      </a>
     </div>
 
   </div>
