@@ -477,6 +477,42 @@ footer{
 @media (prefers-reduced-motion: reduce){
   .coming-soon .soon{ animation:none; }
 }
+  /* ===== Keynote Enhancement ===== */
+.keynote-section{
+  padding:90px 0;
+  background:linear-gradient(180deg,#0f172a,#111827);
+}
+
+.keynote-title{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.keynote-badge{
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+  background:linear-gradient(90deg,#60a5fa,#93c5fd);
+  color:#0f172a;
+  box-shadow:0 0 20px rgba(96,165,250,.35);
+}
+
+.keynote-section h2{
+  font-size:34px;
+  margin:0;
+  color:#ffffff;
+}
+
+.keynote-sub{
+  margin-top:12px;
+  color:#cbd5e1;
+  max-width:900px;
+}
 </style>
 </head>
 
@@ -575,11 +611,16 @@ footer{
 
 
 <!-- ✅ Keynote section made more prominent -->
-<section class="section keynote-section">
+<section class="keynote-section">
   <div class="container">
-    <div class="section-title">
+
+    <div class="keynote-title">
       <h2>Keynote Speakers</h2>
-      <div class="badge">Keynote</div>
+      <div class="keynote-badge">Plenary Keynotes</div>
+    </div>
+
+    <div class="keynote-sub">
+      Featured plenary talks highlighting foundational and forward-looking perspectives at the intersection of AI and neuroscience.
     </div>
 
     <div class="speakers-grid">
