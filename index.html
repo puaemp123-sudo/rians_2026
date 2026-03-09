@@ -694,7 +694,35 @@ footer{
   text-decoration:underline;
   opacity:1;
 }
+  .poster-agenda{
+  margin-top:60px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  align-items:start;
+}
+
+@media (max-width:900px){
+  .poster-agenda{
+    grid-template-columns:1fr;
+  }
+}
+
+.agenda-card{
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 30px 80px rgba(0,0,0,0.45);
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.02);
+}
+
+.agenda-card img{
+  width:100%;
+  height:auto;
+  display:block;
+}
 </style>
+  
 </head>
 
 <body>
@@ -777,15 +805,23 @@ footer{
       April 8, 2026 · B1C Hall, IBMS, Academia Sinica, Taipei, Taiwan
     </div>
 
-    <!-- Poster only -->
-    <div class="poster-single">
-      <a class="poster-card"
-         href="assets/RIANS_poster_v2.png"
-         target="_blank"
-         rel="noopener noreferrer">
-        <img src="assets/RIANS_poster_v2.png" alt="RIANS Poster">
-      </a>
-    </div>
+<div class="poster-agenda">
+
+  <!-- Poster -->
+  <a class="poster-card"
+     href="assets/RIANS_poster_v2.png"
+     target="_blank">
+    <img src="assets/RIANS_poster_v2.png" alt="RIANS Poster">
+  </a>
+
+  <!-- Agenda -->
+  <a class="agenda-card"
+     href="assets/RIANS_agenda.png"
+     target="_blank">
+    <img src="assets/RIANS_agenda.png" alt="RIANS Agenda">
+  </a>
+
+</div>
 
   </div>
 </section>
