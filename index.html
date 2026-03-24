@@ -345,7 +345,7 @@ footer{
 /* ===== Speakers layout ===== */
 .speakers-grid{
   display:grid;
- grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap:24px;
   margin-top:26px;
 }
@@ -356,8 +356,7 @@ footer{
 .speaker-card{
   background:rgba(30,41,59,.95);
   border-radius:22px;
-  padding:32px 24px 36px;
-  min-height: 420px;
+  padding:30px 24px;
   display:flex;
   flex-direction:column;
   align-items:center;
@@ -962,7 +961,6 @@ Download Poster Abstract Template (.docx) →
   </div>
 
 </div>
-
   </div>
 </section>
 <section class="invited-section">
@@ -970,6 +968,8 @@ Download Poster Abstract Template (.docx) →
 
     <h2 style="font-size:28px; margin:0;">Invited Speakers</h2>
 
+    <div class="invited-sub">
+      More speakers will be announced soon.
     </div>
 
 <div class="speakers-grid" style="margin-top:26px;">
@@ -985,7 +985,7 @@ Download Poster Abstract Template (.docx) →
   </div>
 
     <div class="speaker-card">
-    <img class="speaker-photo" src="assets/Po-Han-Chiang.jpg" alt="Po-Han Chiang">
+    <img class="speaker-photo" src="assets/Chiang.jpg" alt="Po-Han Chiang">
     <p class="speaker-name">Dr. Po-Han Chiang 江柏翰 博士</p>
     <p class="speaker-affil">
       Assistant Professor<br>
@@ -1004,19 +1004,23 @@ Download Poster Abstract Template (.docx) →
   </p>
   </div>
 
-  <div class="speaker-card">
-    <img class="speaker-photo" src="assets/Chao Hung Wang.jpg" alt="Chao Hung Wang">
-    <p class="speaker-name">Dr. Chao-Hung Wang 王超鴻 博士</p>
-    <p class="speaker-affil">
-      Assistant Professor<br>
-      Miin Wu School of Computing<br>
-      National Cheng Kung University, Taiwan
+<div class="speaker-card">
+  <img class="speaker-photo" src="assets/Chao Hung Wang.jpg" alt="Chao Hung Wang">
+  
+  <p class="speaker-name">Dr. Chao-Hung Wang 王超鴻 博士</p>
+  
+  <p class="speaker-affil">
+    Assistant Professor<br>
+    Miin Wu School of Computing<br>
+    National Cheng Kung University, Taiwan
   </p>
+
+  <!-- 👇 講題放這裡 ） -->
   <p class="speaker-talk">
     Towards Brain-Inspired SNN Hardware: Memristive Synapses, Neuronal Time Constant Optimization, and SRAM-CIM SNN Design.
   </p>
 </div>
-
+  
   <div class="speaker-card">
     <img class="speaker-photo" src="assets/YuTsao_USE.jpg" alt="Yu Tsao">
     <p class="speaker-name">Dr. Yu Tsao 曹昱 博士</p>
