@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NeuroAI Summer School 2026</title>
+  <style>
+    :root{
+      --ink:#0f172a;
+      --muted:#475569;
+      --subtle:#64748b;
+      --bg:#ffffff;
+      --soft:#f8fafc;
+      --soft2:#f1f5f9;
+      --line:#e2e8f0;
+      --purple:#7c3aed;
+      --purple2:#a855f7;
+      --blue:#4f46e5;
+      --cyan:#14b8a6;
+      --cyan2:#2dd4bf;
+      --shadow:0 20px 60px rgba(15,23,42,.10);
+      --radius:28px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{
+      font-family:"Noto Sans TC","Inter","Segoe UI",Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(124,58,237,.12), transparent 30%),
+        radial-gradient(circle at 88% 8%, rgba(20,184,166,.12), transparent 28%),
+        #fff;
+      line-height:1.75;
+    }
+    a{text-decoration:none;color:inherit;}
+
+    .nav{
+      position:sticky;top:0;z-index:20;
+      background:rgba(255,255,255,.86);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      max-width:1180px;margin:auto;padding:16px 24px;
+      display:flex;align-items:center;justify-content:space-between;gap:18px;
+    }
+    .brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:.04em;}
+    .brand-mark{
+      width:34px;height:34px;border-radius:12px;
+      background:linear-gradient(135deg,var(--purple),var(--cyan));
+      box-shadow:0 12px 30px rgba(124,58,237,.26);
+    }
+    .nav-links{display:flex;gap:18px;color:var(--muted);font-size:14px;}
+    .nav-links a:hover{color:var(--purple);}
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:12px 20px;border-radius:999px;font-weight:800;
+      border:1px solid transparent;white-space:nowrap;transition:.2s;
+    }
+    .btn-primary{
+      background:linear-gradient(135deg,var(--purple),var(--blue));
+      color:white;box-shadow:0 14px 32px rgba(124,58,237,.25);
+    }
+    .btn-primary:hover{transform:translateY(-2px);}
+    .btn-outline{
+      border-color:#c4b5fd;color:var(--purple);background:white;
+    }
+    .btn-outline:hover{border-color:var(--purple);box-shadow:0 12px 30px rgba(124,58,237,.12);}
+
+    .section{max-width:1180px;margin:auto;padding:86px 24px;}
+    .hero{
+      min-height:82vh;display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center;
+      padding-top:88px;
+    }
+    .eyebrow{
+      color:var(--purple);font-weight:900;letter-spacing:.26em;text-transform:uppercase;
+      font-size:13px;margin-bottom:18px;
+    }
+    h1{
+      font-size:clamp(54px,8vw,108px);line-height:.88;letter-spacing:-.065em;font-weight:950;
+    }
+    .gradient-text{
+      background:linear-gradient(135deg,#111827 10%,var(--purple) 45%,var(--cyan));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+    }
+    .hero h2{
+      margin-top:28px;font-size:clamp(26px,3.3vw,44px);line-height:1.16;color:#312e81;
+    }
+    .hero p{margin-top:22px;color:var(--muted);font-size:18px;max-width:680px;}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;}
+    .meta{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px;}
+    .meta-item{
+      background:white;border:1px solid var(--line);border-radius:22px;padding:16px;
+      box-shadow:0 10px 26px rgba(15,23,42,.06);color:var(--muted);
+    }
+    .meta-item b{color:var(--ink);}
+
+    .visual{
+      position:relative;min-height:500px;border-radius:38px;overflow:hidden;
+      background:
+        radial-gradient(circle at 46% 34%, rgba(124,58,237,.23), transparent 32%),
+        linear-gradient(135deg,#ffffff,#f5f3ff 55%,#ecfeff);
+      border:1px solid #ddd6fe;box-shadow:var(--shadow);
+    }
+    .visual::before{
+      content:"";position:absolute;inset:0;
+      background-image:
+        linear-gradient(rgba(124,58,237,.08) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(124,58,237,.08) 1px,transparent 1px);
+      background-size:42px 42px;
+      opacity:.8;
+    }
+    .orb{
+      position:absolute;width:260px;height:260px;border-radius:50%;top:72px;left:50%;
+      transform:translateX(-50%);
+      background:
+        radial-gradient(circle at 36% 32%,#fff 0 8px,transparent 9px),
+        radial-gradient(circle at 58% 46%,var(--cyan2) 0 7px,transparent 8px),
+        radial-gradient(circle at 46% 60%,var(--purple2) 0 8px,transparent 9px),
+        radial-gradient(circle,rgba(124,58,237,.22),rgba(20,184,166,.08) 64%,transparent 65%);
+      border:1px solid rgba(124,58,237,.22);
+      box-shadow:0 0 70px rgba(124,58,237,.20);
+    }
+    .robot-base{
+      position:absolute;left:50%;bottom:80px;transform:translateX(-50%);
+      width:270px;height:90px;border-radius:34px 34px 20px 20px;
+      background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(20,184,166,.10));
+      border:1px solid rgba(124,58,237,.20);
+      box-shadow:0 18px 40px rgba(15,23,42,.10);
+    }
+    .wheel{
+      position:absolute;bottom:52px;width:58px;height:58px;border-radius:50%;
+      border:8px solid rgba(20,184,166,.42);background:#0f172a;
+    }
+    .wheel.left{left:132px}.wheel.right{right:132px}
+    .floating-note{
+      position:absolute;right:24px;bottom:24px;background:rgba(255,255,255,.80);
+      border:1px solid var(--line);border-radius:22px;padding:16px;color:var(--muted);
+      box-shadow:0 16px 42px rgba(15,23,42,.12);backdrop-filter:blur(10px);
+    }
+
+    .section-title{margin-bottom:32px;}
+    .section-title h2{font-size:clamp(34px,4vw,56px);line-height:1.08;letter-spacing:-.04em;}
+    .section-title p{margin-top:16px;max-width:780px;color:var(--muted);font-size:17px;}
+
+    .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;}
+    .card{
+      background:white;border:1px solid var(--line);border-radius:var(--radius);padding:28px;
+      box-shadow:0 12px 34px rgba(15,23,42,.06);
+    }
+    .feature{
+      position:relative;overflow:hidden;min-height:178px;
+    }
+    .feature::before{
+      content:"";position:absolute;top:-62px;right:-72px;width:180px;height:180px;
+      border-radius:32px;background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(20,184,166,.13));
+      transform:rotate(25deg);
+    }
+    .icon{font-size:36px;margin-bottom:18px;}
+    .card h3{font-size:21px;margin-bottom:10px;}
+    .card p{color:var(--muted);}
+    .theme-box{
+      background:linear-gradient(135deg,#f8fafc,#f5f3ff 62%,#ecfeff);
+      border:1px solid #ddd6fe;border-radius:36px;padding:38px;box-shadow:var(--shadow);
+    }
+    .list{list-style:none;display:grid;gap:12px;color:var(--muted);margin-top:16px;}
+    .list li{position:relative;padding-left:28px;}
+    .list li::before{content:"✦";position:absolute;left:0;color:var(--purple);font-weight:900;}
+
+    .program-wrap{display:grid;gap:22px;}
+    .program-card{
+      display:grid;grid-template-columns:.62fr 1.38fr;gap:24px;align-items:start;
+      background:white;border:1px solid var(--line);border-radius:34px;padding:30px;
+      box-shadow:0 14px 40px rgba(15,23,42,.06);
+    }
+    .program-label{
+      color:white;border-radius:26px;padding:28px;min-height:190px;
+      background:linear-gradient(135deg,var(--purple),var(--blue));
+      display:flex;flex-direction:column;justify-content:space-between;
+    }
+    .program-label small{text-transform:uppercase;letter-spacing:.22em;color:#ddd6fe;font-weight:900;}
+    .program-label h3{font-size:34px;line-height:1.05;}
+    .program-label b{color:#ccfbf1;}
+    .pill-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px;}
+    .pill{
+      display:inline-flex;border:1px solid #ddd6fe;background:#faf5ff;color:#5b21b6;
+      padding:7px 12px;border-radius:999px;font-size:14px;font-weight:800;
+    }
+
+    .speaker{text-align:center;}
+    .photo{
+      width:128px;height:128px;border-radius:50%;margin:0 auto 18px;
+      background:linear-gradient(135deg,#ede9fe,#ccfbf1);border:1px solid #ddd6fe;
+      display:flex;align-items:center;justify-content:center;color:var(--subtle);font-size:13px;
+    }
+    .speaker h3{font-size:22px;}
+    .speaker p{margin-top:8px;color:var(--muted);}
+
+    .registration{
+      background:linear-gradient(135deg,#ffffff,#f5f3ff 64%,#ecfeff);
+      border:1px solid #ddd6fe;border-radius:38px;padding:44px;
+      display:grid;grid-template-columns:1fr .9fr;gap:30px;align-items:center;
+      box-shadow:var(--shadow);
+    }
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px;}
+    .stat{background:white;border:1px solid var(--line);border-radius:22px;padding:20px;text-align:center;}
+    .stat b{font-size:30px;color:var(--purple);display:block;}
+
+    .faq{display:grid;gap:14px;}
+    details{background:white;border:1px solid var(--line);border-radius:20px;padding:18px 20px;box-shadow:0 10px 28px rgba(15,23,42,.04);}
+    summary{cursor:pointer;font-weight:900;}
+    details p{margin-top:12px;color:var(--muted);}
+
+    footer{
+      padding:36px 24px;background:#0f172a;color:#cbd5e1;text-align:center;
+    }
+    footer p{margin:4px 0;}
+    .small-note{color:var(--subtle);font-size:14px;margin-top:10px;}
+
+    @media(max-width:920px){
+      .hero,.program-card,.registration{grid-template-columns:1fr;}
+      .grid-4,.grid-3,.grid-2,.stats,.meta{grid-template-columns:1fr 1fr;}
+      .nav-links{display:none;}
+      .visual{min-height:420px;}
+    }
+    @media(max-width:620px){
+      .section{padding:64px 18px;}
+      .hero{padding-top:56px;}
+      h1{font-size:54px;}
+      .grid-4,.grid-3,.grid-2,.stats,.meta{grid-template-columns:1fr;}
+      .visual{min-height:360px;}
+      .wheel.left{left:82px}.wheel.right{right:82px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top"><span class="brand-mark"></span><span>NeuroAI School 2026</span></a>
+      <div class="nav-links">
+        <a href="#about">活動介紹</a>
+        <a href="#theme">主題</a>
+        <a href="#program">課程</a>
+        <a href="#speakers">講師</a>
+        <a href="#registration">報名</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="btn btn-primary" href="GOOGLE_FORM_LINK" target="_blank" rel="noopener">立即報名</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="section hero">
+      <div>
+        <div class="eyebrow">2026 / 08 / 09 — 08 / 13</div>
+        <h1><span class="gradient-text">NEUROAI</span><br>SUMMER<br>SCHOOL</h1>
+        <h2>Neuromechatronics for Spatial Intelligence</h2>
+        <p>第二屆 NeuroAI Summer School 聚焦於神經機電與空間智慧，結合神經科學、人工智慧、自主系統與 Edge NeuroAI，透過專題實作、Hands-on 課程與專題演講，建立跨領域整合能力。</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="GOOGLE_FORM_LINK" target="_blank" rel="noopener">立即報名</a>
+          <a class="btn btn-outline" href="#program">課程資訊</a>
+          <a class="btn btn-outline" href="POSTER_LINK" target="_blank" rel="noopener">下載海報</a>
+        </div>
+        <div class="meta">
+          <div class="meta-item"> 活動日期<br><b>2026/08/09–08/13</b></div>
+          <div class="meta-item"> 活動地點<br><b>中央研究院南部院區</b></div>
+          <div class="meta-item"> 招生名額<br><b>20 位學員</b></div>
+        </div>
+      </div>
+
+      <div class="visual">
+        <div class="orb"></div>
+        <div class="robot-base"></div>
+        <div class="wheel left"></div>
+        <div class="wheel right"></div>
+        <div class="floating-note">Brain-inspired computation<br>Autonomous mobile systems<br>Edge NeuroAI</div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-title">
+        <div class="eyebrow">About</div>
+        <h2>關於 NeuroAI Summer School</h2>
+        <p>NeuroAI Summer School 致力於建立神經科學、人工智慧、機器人與智慧系統之跨領域學習平台。今年以「Neuromechatronics for Spatial Intelligence」為主題，強調腦啟發智慧、空間感知、自主行動與邊緣運算系統之整合。</p>
+      </div>
+      <div class="grid-4">
+        <div class="card feature"><div class="icon">🧠</div><h3>神經啟發智慧</h3><p>理解神經系統如何啟發智慧行為、決策與學習。</p></div>
+        <div class="card feature"><div class="icon">🤖</div><h3>自主移動系統</h3><p>探索移動平台如何在環境中進行感知、導航與互動。</p></div>
+        <div class="card feature"><div class="icon">⚡</div><h3>Edge NeuroAI</h3><p>聚焦裝置端運算與低延遲智慧系統應用。</p></div>
+        <div class="card feature"><div class="icon">🛠</div><h3>Hands-on Learning</h3><p>透過實作與專題挑戰建立跨領域整合能力。</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="theme">
+      <div class="theme-box">
+        <div class="section-title" style="margin-bottom:0;">
+          <div class="eyebrow">Theme</div>
+          <h2>Why Neuromechatronics for Spatial Intelligence?</h2>
+          <p>本課程聚焦智慧系統如何在真實世界環境中進行感知、決策與行動，透過神經機電、空間智慧與自主系統設計，引導學員建立跨領域整合能力。</p>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <h3>Purpose</h3>
+            <p>此區可放徐老師提供之 Purpose 與今年課程主題介紹。</p>
+          </div>
+          <div class="card">
+            <h3>Expected Outcomes</h3>
+            <ul class="list">
+              <li>理解神經機電與空間智慧之核心概念。</li>
+              <li>認識 Edge NeuroAI 在自主系統中的應用。</li>
+              <li>參與自主系統與感測資料之實作。</li>
+              <li>完成團隊 Project Challenge 並展示成果。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="program">
+      <div class="section-title">
+        <div class="eyebrow">Program Structure</div>
+        <h2>課程架構</h2>
+        <p>本屆課程分為三大模組：Project Time、Hands-on 實作課程與 Speakers 專題演講。</p>
+      </div>
+
+      <div class="program-wrap">
+        <div class="program-card">
+          <div class="program-label">
+            <small>Module 01</small>
+            <h3>Project<br>Time</h3>
+            <b>13 Hours</b>
+          </div>
+          <div>
+            <h3>Edge Neural AI for Autonomous Mobile System</h3>
+            <p>本課程透過 Project-based Learning 模式，引導學員從感知、決策到自主系統設計，逐步完成專題實作，探索智慧系統如何在真實世界環境中進行互動與行動。</p>
+            <div class="pill-row">
+              <span class="pill">Dr. Huai-Ti Lin</span>
+              <span class="pill">徐經倫老師</span>
+              <span class="pill">羅中泉老師</span>
+              <span class="pill">張亞寧老師</span>
+            </div>
+            <p class="small-note">最終將透過 The Foraging Competition 進行成果展示與驗收。</p>
+          </div>
+        </div>
+
+        <div class="program-card">
+          <div class="program-label">
+            <small>Module 02</small>
+            <h3>Hands-on</h3>
+            <b>11 Hours</b>
+          </div>
+          <div>
+            <h3>Hands-on Experience</h3>
+            <p>今年課程強調實作導向學習，透過硬體平台、感測資料與自主移動系統，讓學員從概念走向實際應用。</p>
+            <div class="pill-row">
+              <span class="pill">Event Camera</span>
+              <span class="pill">Autonomous Mobile Systems</span>
+              <span class="pill">Edge NeuroAI</span>
+              <span class="pill">Brain-inspired Intelligence</span>
+            </div>
+            <div class="pill-row">
+              <span class="pill">徐經倫老師</span>
+              <span class="pill">施奇廷老師</span>
+              <span class="pill">Dr. Huai-Ti Lin</span>
+              <span class="pill">羅中泉老師</span>
+              <span class="pill">張亞寧老師</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="program-card">
+          <div class="program-label">
+            <small>Module 03</small>
+            <h3>Speakers</h3>
+            <b>5 Hours</b>
+          </div>
+          <div>
+            <h3>Keynote & Invited Talks</h3>
+            <p>來自神經科學、人工智慧與跨領域研究專家的專題分享，帶領學員理解最新研究方向與未來發展。</p>
+            <div class="pill-row">
+              <span class="pill">Prof. Anthony Zador</span>
+              <span class="pill">朱麗安老師</span>
+              <span class="pill">焦傳金老師</span>
+              <span class="pill">王超鴻老師</span>
+              <span class="pill">林秀豪老師</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="speakers">
+      <div class="section-title">
+        <div class="eyebrow">Speakers</div>
+        <h2>Course Instructors</h2>
+        <p>講者照片、職稱與講題將依確認結果陸續更新。</p>
+      </div>
+      <div class="grid-3">
+        <div class="card speaker"><div class="photo">Photo</div><h3>Dr.Chung-Chuan Lo 羅中泉<br>國立清華大學 生命科學暨醫學院</p></div>
+        <div class="card speaker"><div class="photo">Photo</div><h3>Dr. Huai-Ti Lin<br>倫敦帝國學院 生物工程系</p></div>
+        <div class="card speaker"><div class="photo">Photo</div><h3>Dr.Ching-Lung Hsu 徐經倫</h3><p>中央研究院 生物醫學科學研究所</p></div>
+        <div class="card speaker"><div class="photo">Photo</div><h3>Dr.Chang Ya-Ning 張亞寧</h3><p>國立成功大學 敏求智慧運算學院</p></div>
+        <div class="card speaker"><div class="photo">Photo</div><h3>Dr.Chi-Tin Shin 施奇廷</h3><p>東海大學 應用物理學系</p></div>
+
+      </div>
+    <section class="section" id="speakers">
+      <div class="section-title">
+        <div class="eyebrow">Speakers</div>
+        <h2>Speaker Sessions</h2>
+        <p>講者照片、職稱與講題將依確認結果陸續更新。</p>
+      </div>
+      <div class="grid-3">
+        <div class="card speaker"><div class="photo">Photo</div><h3>Dr.Anthony Zador</h3><p>Cold Spring Harbor Laboratory<br>Title to be updated</p></div>
+        <div class="card speaker"><div class="photo">Photo</div><h3>Dr.Li-An Chu 朱麗安</h3><p>國立臺灣大學 醫學工程學系</p></div>
+        <div class="card speaker"><div class="photo">Photo</div><h3> Dr. Chuan-Chin Chiao 焦傳金</h3><p>國立清華大學 生命科學暨醫學院分子醫學研究所</p></div>
+        <div class="card speaker"><div class="photo">Photo</div><h3>Dr.Hsiu-Hau Lin 林秀豪</h3><p>國立清華大學 物理系</p></div>
+        <div class="card speaker"><div class="photo">Photo</div><h3>Dr.Chao-Hung Wang 王超鴻</h3><p>國立成功大學 敏求智慧運算學院</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="registration">
+      <div class="registration">
+        <div>
+          <div class="eyebrow">Registration</div>
+          <h2>報名資訊</h2>
+          <p>歡迎對 NeuroAI、神經科學、人工智慧、機器人、自主系統與跨領域研究有興趣之學生申請參與。</p>
+          <div class="stats">
+            <div class="stat"><b>20</b><span>招生名額</span></div>
+            <div class="stat"><b>7,500</b><span>學費 NT$</span></div>
+            <div class="stat"><b>3–5</b><span>全額補助名額</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>申請資料</h3>
+          <ul class="list">
+            <li>CV</li>
+            <li>Personal Statement</li>
+            <li>補助申請資訊（如適用）</li>
+          </ul>
+          <div style="height:18px"></div>
+          <a class="btn btn-primary" href="GOOGLE_FORM_LINK" target="_blank" rel="noopener">立即報名</a>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="section-title">
+        <div class="eyebrow">FAQ</div>
+        <h2>常見問題</h2>
+      </div>
+      <div class="faq">
+        <details><summary>需要具備程式背景嗎？</summary><p>建議具備基礎程式能力或對 AI／神經科學／機器人相關主題有學習興趣。詳細條件將於報名表中說明。</p></details>
+        <details><summary>需要自備筆電嗎？</summary><p>Hands-on 建議學員自備筆電。若課程有特定軟體或硬體需求，將於行前通知中另行說明。</p></details>
+        <details><summary>是否提供住宿？</summary><p>是的，住宿安排將依活動規劃與錄取名單確認後另行通知。</p></details>
+        <details><summary>如何申請補助？</summary><p>本屆預計提供 3–5 位全額補助名額，申請方式將於報名表中註明。若獲得獎學金名額學員則另行通知。</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><b>Organizer</b>｜台灣計算神經科學學會</p>
+    <p><b>Co-organizer</b>｜國科會腦科技推動辦公室</p>
+    <p class="small-note">NeuroAI Summer School 2026｜Website draft</p>
+  </footer>
+</body>
+</html>
